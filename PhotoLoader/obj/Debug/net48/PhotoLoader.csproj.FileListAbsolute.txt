@@ -1,7 +1,0 @@
-C:\TechProg_Kuesach2\PhotoLoader\obj\Debug\net48\PhotoLoader.csproj.AssemblyReference.cache
-C:\TechProg_Kuesach2\PhotoLoader\obj\Debug\net48\PhotoLoader.csproj.SuggestedBindingRedirects.cache
-C:\TechProg_Kuesach2\PhotoLoader\obj\Debug\net48\PhotoLoader.exe.config
-C:\TechProg_Kuesach2\PhotoLoader\obj\Debug\net48\MainWindow.g.cs
-C:\TechProg_Kuesach2\PhotoLoader\obj\Debug\net48\App.g.cs
-C:\TechProg_Kuesach2\PhotoLoader\obj\Debug\net48\PhotoLoader_MarkupCompile.cache
-C:\TechProg_Kuesach2\PhotoLoader\obj\Debug\net48\PhotoLoader_MarkupCompile.lref
