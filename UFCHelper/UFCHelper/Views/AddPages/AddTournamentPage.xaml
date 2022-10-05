@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:UFCHelper.ViewModels"
+             Title="{Binding Title}"
+             x:Class="UFCHelper.Views.AddTournamentPage">
+    <ContentPage.BindingContext>
+        <viewModels:AddTournamentViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Editor
+                Placeholder="Название турнира"
+                HorizontalOptions="FillAndExpand"
+                Margin="15,25,15,0"
+                Text="{Binding Name}"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Editor
+                    Placeholder="ДД.ММ.ГГГГ"
+                    HorizontalOptions="Fill" 
+                    WidthRequest="150" 
+                    Margin="15,0,0,0"
+                    Text="{Binding Date}"/>
+                <Editor
+                    Placeholder="Место (Город, Страна)" 
+                    HorizontalOptions="FillAndExpand" 
+                    Margin="0,0,15,0"
+                    Text="{Binding Place}"/>
+            </StackLayout>
+            <Editor
+                Placeholder="Статус (Запланирован/Состоялся)"
+                HorizontalOptions="FillAndExpand" Margin="15,0,15,20"
+                Text="{Binding Status}"/>
+            <Button Text="Сохранить" HeightRequest="50" Command="{Binding SaveCommand}"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

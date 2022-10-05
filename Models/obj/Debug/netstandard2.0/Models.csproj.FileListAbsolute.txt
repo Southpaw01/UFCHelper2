@@ -1,0 +1,10 @@
+C:\TechProg_Kuesach2\Models\bin\Debug\netstandard2.0\Models.deps.json
+C:\TechProg_Kuesach2\Models\bin\Debug\netstandard2.0\Models.dll
+C:\TechProg_Kuesach2\Models\bin\Debug\netstandard2.0\Models.pdb
+C:\TechProg_Kuesach2\Models\obj\Debug\netstandard2.0\Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\TechProg_Kuesach2\Models\obj\Debug\netstandard2.0\Models.AssemblyInfoInputs.cache
+C:\TechProg_Kuesach2\Models\obj\Debug\netstandard2.0\Models.AssemblyInfo.cs
+C:\TechProg_Kuesach2\Models\obj\Debug\netstandard2.0\Models.csproj.CoreCompileInputs.cache
+C:\TechProg_Kuesach2\Models\obj\Debug\netstandard2.0\Models.dll
+C:\TechProg_Kuesach2\Models\obj\Debug\netstandard2.0\Models.pdb
+C:\TechProg_Kuesach2\Models\obj\Debug\netstandard2.0\Models.csproj.AssemblyReference.cache

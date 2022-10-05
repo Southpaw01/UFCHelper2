@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UFCHelper.Views.FinishedTournamentsPage"
+             xmlns:model="clr-namespace:Models;assembly=Models"
+             Title="{Binding Title}"
+             xmlns:viewModels="clr-namespace:UFCHelper.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewModels:FinishedTournamentsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <RefreshView x:DataType="viewModels:FinishedTournamentsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Tournaments}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                            <StackLayout x:DataType="model:Tournament"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand">
+                                <Label Text="{Binding Name}" FontAttributes="Bold" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="20"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Date, StringFormat='{}{0:dd.MM.yyyy}'}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="15"
+                            HorizontalOptions="FillAndExpand"/>
+                                    <Label Text="{Binding Place}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="15"
+                            HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:FinishedTournamentsViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

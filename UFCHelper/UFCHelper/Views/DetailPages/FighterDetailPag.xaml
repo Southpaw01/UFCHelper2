@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:viewModels="clr-namespace:UFCHelper.ViewModels"
+             x:Class="UFCHelper.Views.FighterDetailPage">
+    <TabbedPage.BindingContext>
+        <viewModels:FighterDetailViewModel/>
+    </TabbedPage.BindingContext>
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Информация">
+        <ContentPage.Content>
+            <RefreshView x:DataType="viewModels:FighterDetailViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <ScrollView VerticalOptions="FillAndExpand">
+                    <StackLayout VerticalOptions="FillAndExpand">
+                        <Label  Text="{Binding Fighter.FullName}"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="0,10,0,0"
+                    FontSize="Title"
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Center"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Image
+                Source="{Binding Fighter.BigPhoto}"
+                HorizontalOptions="StartAndExpand"
+                Margin="10, 10"
+                Aspect="AspectFit"/>
+                            <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
+                                <Label Text="{Binding Fighter.Wins, StringFormat='В: {0}'}"
+                           FontSize="Large"
+                           FontAttributes="Bold"/>
+                                <Label Text="{Binding Fighter.Loses, StringFormat='П: {0}'}"
+                           FontSize="Large"
+                           FontAttributes="Bold"/>
+                                <Label Text="{Binding Fighter.Draws, StringFormat='Н: {0}'}"
+                           FontSize="Large"
+                           FontAttributes="Bold"/>
+                                <Label Text="{Binding Fighter.NoContests, StringFormat='НС: {0}'}"
+                           FontSize="Large"
+                           FontAttributes="Bold"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <Frame Margin="0,0,0,20">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                                    Text="{Binding StatsFighter.StatsAccPuncehs, StringFormat='{0} %'}"
+                                    FontSize="Title"
+                                    FontAttributes="Bold"/>
+                                    <Label 
+                                    Text="ТОЧНОСТЬ УДАРОВ" 
+                                    HorizontalOptions="CenterAndExpand"
+                                    FontSize="Title"
+                                    FontAttributes="Bold"/>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <Label Text="Нанесено акц. ударов" 
+                                               HorizontalOptions="StartAndExpand"
+                                               HorizontalTextAlignment="Start"
+                                               VerticalOptions="CenterAndExpand"
+                                               TextColor="Gray"/>
+                                            <Label Text="Всего акц. ударов"
+                                               HorizontalOptions="StartAndExpand"
+                                               HorizontalTextAlignment="Start"
+                                               VerticalOptions="CenterAndExpand"
+                                               TextColor="Gray"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+                                            <Label Text="{Binding StatsFighter.AccPunches}"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                                            <Label Text="{Binding StatsFighter.AllAccPunches}"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="StartAndExpand"
+                                               VerticalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                                    Text="{Binding StatsFighter.StatsStruggle, StringFormat='{0} %'}"
+                                    FontSize="Title"
+                                    FontAttributes="Bold"/>
+                                    <Label 
+                                    Text="СТАТИСТИКА В БОРЬБЕ"
+                                    HorizontalOptions="CenterAndExpand"
+                                    FontSize="Title"
+                                    FontAttributes="Bold"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                            <Label Text="Тейкдаунов выполнено" 
+                                               HorizontalOptions="StartAndExpand"
+                                               HorizontalTextAlignment="Start"
+                                               TextColor="Gray"/>
+                                            <Label Text="Попыток тейкдаунов"
+                                               HorizontalOptions="StartAndExpand"
+                                               HorizontalTextAlignment="Start"
+                                               TextColor="Gray"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                            <Label Text="{Binding StatsFighter.Takedowns}"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="CenterAndExpand"/>
+                                            <Label Text="{Binding StatsFighter.TryTakedowns}"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Margin="0,0,0,20">
+                            <StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                    <Label
+                            Text="{Binding Fighter.WeightCategory}"
+                            FontSize="Medium"
+                            FontAttributes="Bold"/>
+                                    <Label
+                            Text="{Binding Fighter.NumRating, StringFormat='{0}'}"
+                            FontSize="Medium"
+                            FontAttributes="Bold"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                        <Label Text="СТРАНА" FontSize="Default" TextColor="Gray"/>
+                                        <Label Text="{Binding Fighter.Country}"
+                               FontAttributes="Bold"
+                               FontSize="Subtitle"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Padding="0,0,0,20">
+                                        <Label Text="ДЕБЮТ В ОКТАГОНЕ" FontSize="Default" TextColor="Gray"/>
+                                        <Label Text="{Binding Fighter.Debut}"
+                               FontAttributes="Bold" FontSize="Subtitle"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Padding="0,0,0,20">
+                                        <Label Text="БОЕВ В UFC" FontSize="Default" TextColor="Gray"/>
+                                        <Label Text="{Binding StatsFighter.CountFightsInUfc}"
+                               FontAttributes="Bold" FontSize="Subtitle"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Margin="0,0,0,20">
+                            <StackLayout>
+                                <Label 
+                        Text="Физические данные"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        FontSize="Title"
+                        FontAttributes="Bold"
+                        Margin="0,0,0,30"/>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                        <Label Text="ВОЗРАСТ" TextColor="Gray" FontSize="Default"/>
+                                        <Label Text="{Binding Fighter.Age}"
+                               FontAttributes="Bold"
+                               FontSize="Subtitle"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Padding="0,0,0,20">
+                                        <Label Text="ВЕС" TextColor="Gray" FontSize="Default"/>
+                                        <Label Text="{Binding Fighter.Weight, StringFormat='{0} кг'}"
+                               FontAttributes="Bold" FontSize="Subtitle"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Padding="0,0,0,20">
+                                        <Label Text="РОСТ" TextColor="Gray" FontSize="Default"/>
+                                        <Label Text="{Binding Fighter.Height, StringFormat='{0} см'}"
+                               FontAttributes="Bold" FontSize="Subtitle"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                        <Label Text="РАЗМАХ РУК" TextColor="Gray" FontSize="Default"/>
+                                        <Label Text="{Binding Fighter.ArmSpan, StringFormat='{0} см'}"
+                               FontAttributes="Bold"
+                               FontSize="Subtitle"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" Padding="0,0,0,20">
+                                        <Label Text="РАЗМАХ НОГ" TextColor="Gray" FontSize="Default"/>
+                                        <Label Text="{Binding Fighter.LegSpan, StringFormat='{0} см'}"
+                               FontAttributes="Bold" FontSize="Subtitle"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </StackLayout>
+
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </RefreshView>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Поединки">
+        <ContentPage.Content>
+            <StackLayout>
+                <Label Text="Поединки"
+                           FontSize="Title"
+                           FontAttributes="Bold"
+                            Margin="0,20,0,30"/>
+                <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Fights}"
+                SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate >
+                            <Frame BorderColor="Black">
+                                <StackLayout
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="StartAndExpand">
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" 
+                            FontSize="20"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:FighterDetailViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                        </TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

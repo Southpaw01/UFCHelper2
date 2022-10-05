@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:UFCHelper.ViewModels"
+             xmlns:local="clr-namespace:UFCHelper.Views"
+             Title="{Binding  Fight.Tournament}"
+             x:Class="UFCHelper.Views.FightDetailPage">
+    <ContentPage.BindingContext>
+        <viewModels:FightDetailViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Fight.Name}"
+                   FontSize="Title"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0"/>
+            <Label Text="{Binding  Fight.Weight}"
+                       FontSize="Subtitle"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,25,0,0">
+                <StackLayout HorizontalOptions="FillAndExpand" >
+                    <Label Text="РЕЗУЛЬТАТ" TextColor="Gray"/>
+                    <Label Text="{Binding  Fight.Result}" FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="ПОБЕДИТЕЛЬ" TextColor="Gray"/>
+                    <Label Text="{Binding  Fight.WinnerName}" FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="РАУНД" TextColor="Gray"/>
+                    <Label Text="{Binding  Fight.Round}" FontAttributes="Bold"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="ВРЕМЯ" TextColor="Gray"/>
+                    <Label Text="{Binding  Fight.Time}" FontAttributes="Bold"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0">
+                <StackLayout>
+                    <CheckBox Color="Green" IsEnabled="False" IsChecked="{Binding IsWinner1}" HorizontalOptions="CenterAndExpand" ></CheckBox>
+                    <Image Source="{Binding  Fight.FirstFighter.SmallPhoto}" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout>
+                    <CheckBox Color="Green" IsEnabled="False" IsChecked="{Binding IsWinner2}" HorizontalOptions="CenterAndExpand"></CheckBox>
+                    <Image Source="{Binding  Fight.SecondFighter.SmallPhoto}" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </StackLayout>
+
+
+            <Frame BorderColor="Black" Margin="0, 20, 0,0">
+                <StackLayout>
+                    <Label Text="Статистика за все раунды"
+                           FontSize="Title"
+                           FontAttributes="Bold"/>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label  HorizontalOptions="FillAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding SumStats1.Punches}" FontAttributes="Bold"></Span>
+                                    <Span Text=" из "></Span>
+                                    <Span Text="{Binding SumStats1.AllPunches}" FontAttributes="Bold"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="FillAndExpand" Text="ВСЕГО УДАРОВ" TextColor="Gray"/>
+                        <Label HorizontalOptions="FillAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding SumStats2.Punches}" FontAttributes="Bold"></Span>
+                                    <Span Text=" из "></Span>
+                                    <Span Text="{Binding SumStats2.AllPunches}" FontAttributes="Bold"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label  HorizontalOptions="FillAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding SumStats1.AccPunches}" FontAttributes="Bold"></Span>
+                                    <Span Text=" из "></Span>
+                                    <Span Text="{Binding SumStats1.AllAccPunches}" FontAttributes="Bold"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="FillAndExpand" Text="АКЦ. УДАРОВ" TextColor="Gray"/>
+                        <Label HorizontalOptions="FillAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding SumStats2.AccPunches}" FontAttributes="Bold"></Span>
+                                    <Span Text=" из "></Span>
+                                    <Span Text="{Binding SumStats2.AllAccPunches}" FontAttributes="Bold"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label  HorizontalOptions="FillAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding SumStats1.Takedowns}" FontAttributes="Bold"></Span>
+                                    <Span Text=" из "></Span>
+                                    <Span Text="{Binding SumStats1.TryTakedowns}" FontAttributes="Bold"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label HorizontalOptions="FillAndExpand" Text="ТЕЙКДАУНОВ" TextColor="Gray"/>
+                        <Label HorizontalOptions="FillAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding SumStats2.Takedowns}" FontAttributes="Bold"></Span>
+                                    <Span Text=" из "></Span>
+                                    <Span Text="{Binding SumStats2.TryTakedowns}" FontAttributes="Bold"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+
+            <CollectionView
+                ItemsSource="{Binding Fight.Rounds}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Black">
+                            <StackLayout>
+                                <Label
+                                Text="{Binding Number}"
+                                FontSize="Title" HorizontalOptions="CenterAndExpand"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                            <Label Text="НАНЕСЕНО УДАРОВ" TextColor="Gray"/>
+                                            <Label Text="{Binding GeneralPunches}" FontAttributes="Bold"/>
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="ВСЕГО УДАРОВ" TextColor="Gray"/>
+                                                <Label Text="{Binding GeneralAllPunches}" FontAttributes="Bold"/>
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="НАНЕСЕНО АКЦ. УДАРОВ" TextColor="Gray"/>
+                                                <Label Text="{Binding GeneralAccPunches}" FontAttributes="Bold"/>
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="ВСЕГО АКЦ. УДАРОВ" TextColor="Gray"/>
+                                                <Label Text="{Binding GeneralAllAccPunches}" FontAttributes="Bold"/>
+                                            </StackLayout>
+                                        </StackLayout>
+
+
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="ПОПЫТОК ТЕЙКДАУНОВ" TextColor="Gray"
+                                                   HorizontalTextAlignment="Center"/>
+                                                <Label Text="{Binding GeneralTryTakedowns}" FontAttributes="Bold"/>
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="ТЕЙКДАУНОВ ПРОВЕДЕНО" TextColor="Gray"/>
+                                                <Label Text="{Binding GeneralTakedowns}" FontAttributes="Bold"/>
+                                            </StackLayout>
+                                        </StackLayout>
+
+
+                                    </StackLayout>
+
+
+                                </StackLayout>
+
+
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

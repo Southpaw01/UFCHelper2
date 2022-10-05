@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Models;assembly=Models"
+             xmlns:viewModels="clr-namespace:UFCHelper.ViewModels"
+             xmlns:local="clr-namespace:UFCHelper.ViewModels"
+             Title="{Binding Title}"
+             x:Class="UFCHelper.Views.RatingDetailPage">
+    <ContentPage.BindingContext>
+        <viewModels:RatingDetailViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <RefreshView x:DataType="viewModels:RatingDetailViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Fighters}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HorizontalOptions="Fill" VerticalOptions="Fill">
+                            <StackLayout x:DataType="model:Fighter"
+                                         HorizontalOptions="CenterAndExpand"
+                                         VerticalOptions="Fill"
+                                         Orientation="Horizontal">
+                                <Image Source="{Binding SmallPhoto}"
+                                       HorizontalOptions="StartAndExpand"/>
+                                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                    <StackLayout HorizontalOptions="CenterAndExpand">
+                                        <Label Text="{Binding FullName}"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"
+                                       FontSize="20"
+                                       FontAttributes="Bold"/>
+                                        <Label Text="{Binding Record}"
+                                       HorizontalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding NumRating}"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="CenterAndExpand"
+                                       FontSize="25"
+                                       FontAttributes="Bold"
+                                       Padding="20,0,0,0"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+                                
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:RatingDetailViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

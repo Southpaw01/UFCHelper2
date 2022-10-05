@@ -1,0 +1,1 @@
+C:\TechProg_Kuesach2\UFCHelper\UFCHelper.UWP\UFCHelper.UWP.csproj;x86

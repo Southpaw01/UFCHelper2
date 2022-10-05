@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:UFCHelper.ViewModels"
+             Title="Подробные данные о турнире"
+             x:Class="UFCHelper.Views.TournamentDetailPage">
+    <ContentPage.BindingContext>
+        <viewModels:TournamentDetailViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <RefreshView Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <StackLayout>
+                    <Label Text="{Binding Name}"
+                   FontSize="Title"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,20"/>
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                            <Label Text="ДАТА" FontSize="Default" TextColor="Gray"/>
+                            <Label Text="{Binding Date}" FontAttributes="Bold" FontSize="Subtitle" />
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="МЕСТО" FontSize="Default" TextColor="Gray"/>
+                            <Label Text="{Binding Place}" FontAttributes="Bold" FontSize="Subtitle" />
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <Label Text="СТАТУС" FontSize="Default" TextColor="Gray"/>
+                            <Label Text="{Binding Status}" FontAttributes="Bold" FontSize="Subtitle" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label Text="Бои"
+                       FontSize="Title"
+                       FontAttributes="Bold"
+                       Margin="0,20,0,10"/>
+                    <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Fights}"
+                SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame HorizontalOptions="Fill" VerticalOptions="Fill">
+                                    <StackLayout
+                                         HorizontalOptions="CenterAndExpand"
+                                         VerticalOptions="FillAndExpand"
+                                         Orientation="Horizontal">
+                                        <Label Text="{Binding Name}"
+                                           FontSize="Subtitle" FontAttributes="Bold"/>
+                                        
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:TournamentDetailViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                            </TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="UFCHelper.ViewModels.FightersViewModel">
+    <Position X="12.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIBAAAABQAECAAAABAAAAAAAEA=</HashCode>
+      <FileName>ViewModels\ForMenuViewModels\FightersVIewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="fighters" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="UFCHelper.ViewModels.FinishedTournamentsViewModel">
+    <Position X="10.25" Y="9.5" Width="1.5" />
+    <AssociationLine Name="ratings" Type="Models.Tournament" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="11.188" Y="12.79" />
+        <Point X="11.188" Y="13.562" />
+        <Point X="10.75" Y="13.562" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.633" Y="0.129" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAgAAAAAAAIAAAIABAAEAAAAABAAAAAAEEA=</HashCode>
+      <FileName>ViewModels\ForMenuViewModels\FinishedTournamentsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="ratings" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="UFCHelper.ViewModels.RatingsViewModel">
+    <Position X="5.75" Y="7" Width="1.5" />
+    <AssociationLine Name="ratings" Type="Models.WeightCategory">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.193" Y="0.115" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAiAAAAAAgIAAAIEBAAEAAAAABAAAAAAAEA=</HashCode>
+      <FileName>ViewModels\ForMenuViewModels\RatingsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="ratings" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="UFCHelper.ViewModels.UpcomingTournamentsViewModel">
+    <Position X="7.75" Y="9.5" Width="1.5" />
+    <AssociationLine Name="ratings" Type="Models.Tournament">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.804" Y="0.179" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAiAAAAAAAIAAAIABAAEAAAAABAAAAAAEEA=</HashCode>
+      <FileName>ViewModels\ForMenuViewModels\UpcomingTournamentsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="ratings" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="UFCHelper.ViewModels.BaseViewModel" Collapsed="true">
+    <Position X="9" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAEAAIEAAAABAgAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Models.WeightCategory" Collapsed="true">
+    <Position X="7.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Models.Fighter" Collapsed="true">
+    <Position X="9.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Models.Tournament" Collapsed="true">
+    <Position X="9.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:UFCHelper.ViewModels"
+             xmlns:model="clr-namespace:Models;assembly=Models"
+             xmlns:local="clr-namespace:UFCHelper.ViewModels"
+             Title="{Binding Title}"
+             x:Class="UFCHelper.Views.RatingsPage">
+    <ContentPage.BindingContext>
+        <viewModels:RatingsViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <RefreshView x:DataType="viewModels:RatingsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Ratings}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                            <StackLayout x:DataType="model:WeightCategory"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="FillAndExpand">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="20"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"/>
+                                <Label
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="15"
+                            HorizontalOptions="CenterAndExpand">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="от "></Span>
+                                            <Span Text="{Binding WFrom}" FontAttributes="Bold"></Span>
+                                            <Span Text=" до "></Span>
+                                            <Span Text="{Binding WTo}" FontAttributes="Bold"></Span>
+                                            <Span Text=" кг"></Span>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:RatingsViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:UFCHelper.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             Title="{Binding Title}"
+             x:Class="UFCHelper.Views.AddFighterPage">
+    <ContentPage.BindingContext>
+        <viewModels:AddFighterViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView Padding="0,0,0,50">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="CenterAndExpand" Padding="0,15">
+                    <Image Source="{Binding Fighter.BigPhoto}"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Start"/>
+                    <Editor Placeholder="Ссылка на большую фотографию"
+                            Text="{Binding Fighter.BigPhotoAddress}"
+                            HorizontalOptions="FillAndExpand"
+                            PlaceholderColor="Gray" />
+                    <Button Text="Добавить фото" Command="{Binding AddBigPhotoCommand}"/>
+                </StackLayout>
+
+                <Label Text="Основные сведения" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" >
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="10,0,5,0" >
+                        <Editor Placeholder="Имя" Text="{Binding Fighter.Name, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+                        <Editor Placeholder="Псевдоним" Text="{Binding Fighter.Alias}" HorizontalOptions="FillAndExpand"/>
+                        <Editor Placeholder="Дебют (ДД.ММ.ГГГГ)" Text="{Binding Fighter.Debut}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="5,0,10,0">
+                        <Editor Placeholder="Фамилия" Text="{Binding Fighter.Surname}" HorizontalOptions="FillAndExpand"/>
+                        <Editor Placeholder="Страна" Text="{Binding Fighter.Country}" HorizontalOptions="FillAndExpand"/>
+                        <Editor Placeholder="Весовая категория" Text="{Binding Fighter.WeightCategory}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+
+
+                <StackLayout HorizontalOptions="CenterAndExpand" Padding="0,0,0,20" Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                    <Image Source="{Binding Fighter.SmallPhoto}"
+                           HorizontalOptions="CenterAndExpand"
+                           HeightRequest="150"
+                           WidthRequest="150"
+                           VerticalOptions="CenterAndExpand"/>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Editor Placeholder="Ссылка на маленькую фотографию" 
+                            Text="{Binding Fighter.SmallPhotoAddress}"
+                            VerticalOptions="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Добавить фото" Command="{Binding AddSmallPhotoCommand}"/>
+                    </StackLayout>
+                </StackLayout>
+
+                <Label Text="Статистика" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="0,0,0,20">
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="10,0,5,0">
+                        <Editor Placeholder="Победы" Text="{Binding Fighter.Wins}" HorizontalOptions="FillAndExpand"/>
+                        <Editor Placeholder="Ничьи" Text="{Binding Fighter.Draws}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="5,0,10,0">
+                        <Editor Placeholder="Поражения" Text="{Binding Fighter.Loses}" HorizontalOptions="FillAndExpand"/>
+                        <Editor Placeholder="Не состоявшиеся" Text="{Binding Fighter.NoContests}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <Label Text="Физические данные" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="0,0,0,20">
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="10,0,5,0">
+                        <Editor Placeholder="Пол" Text="{Binding Fighter.Gender}" HorizontalOptions="FillAndExpand"/>
+                        <Editor Placeholder="Рост (см)" Text="{Binding Fighter.Height}" HorizontalOptions="FillAndExpand"/>
+                        <Editor Placeholder="Размах рук (см)" Text="{Binding Fighter.ArmSpan}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="5,0,10,0">
+                        <Editor Placeholder="Возраст" Text="{Binding Fighter.Age}" HorizontalOptions="FillAndExpand"/>
+                        <Editor Placeholder="Вес (кг)" Text="{Binding Fighter.Weight}" HorizontalOptions="FillAndExpand"/>
+                        <Editor Placeholder="Размах ног (см)" Text="{Binding Fighter.LegSpan}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <Button Text="Добавить бойца" Command="{Binding SaveCommand}"/>
+            </StackLayout> 
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,13 @@
+C:\TechProg_Kuesach2\WorkWithDB\bin\Debug\netstandard2.0\WorkWithDB.deps.json
+C:\TechProg_Kuesach2\WorkWithDB\bin\Debug\netstandard2.0\WorkWithDB.dll
+C:\TechProg_Kuesach2\WorkWithDB\bin\Debug\netstandard2.0\WorkWithDB.pdb
+C:\TechProg_Kuesach2\WorkWithDB\bin\Debug\netstandard2.0\Models.dll
+C:\TechProg_Kuesach2\WorkWithDB\bin\Debug\netstandard2.0\Models.pdb
+C:\TechProg_Kuesach2\WorkWithDB\obj\Debug\netstandard2.0\WorkWithDB.csproj.AssemblyReference.cache
+C:\TechProg_Kuesach2\WorkWithDB\obj\Debug\netstandard2.0\WorkWithDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\TechProg_Kuesach2\WorkWithDB\obj\Debug\netstandard2.0\WorkWithDB.AssemblyInfoInputs.cache
+C:\TechProg_Kuesach2\WorkWithDB\obj\Debug\netstandard2.0\WorkWithDB.AssemblyInfo.cs
+C:\TechProg_Kuesach2\WorkWithDB\obj\Debug\netstandard2.0\WorkWithDB.csproj.CoreCompileInputs.cache
+C:\TechProg_Kuesach2\WorkWithDB\obj\Debug\netstandard2.0\WorkWithDB.csproj.CopyComplete
+C:\TechProg_Kuesach2\WorkWithDB\obj\Debug\netstandard2.0\WorkWithDB.dll
+C:\TechProg_Kuesach2\WorkWithDB\obj\Debug\netstandard2.0\WorkWithDB.pdb

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "YUpPAZ6H33yX1UDo3do/HEZckLR3VFzmcQaCmJMLsa+nsS4R/mqyWcDSuy30ucmIvLZ9Ibl5RALSork7TcgYug==",
+  "success": true,
+  "projectFilePath": "C:\\TechProg_Kuesach2\\Models\\Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Илья Петров\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Илья Петров\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Илья Петров\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\Илья Петров\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}
